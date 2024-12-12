@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            max-width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            margin: 20px 0 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #eee;
+            padding: 10px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 3px;
+        }
+
+        li button {
+            background-color: #ff0000;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        li button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recipe Book</h1>
+        <form id="recipe-form">
+            <input type="text" id="title" placeholder="Recipe Title" required>
+            <textarea id="ingredients" placeholder="Ingredients" required></textarea>
+            <textarea id="instructions" placeholder="Instructions" required></textarea>
+            <button type="button" onclick="addRecipe()">Add Recipe</button>
+        </form>
+        <h2>Recipes</h2>
+        <ul id="recipe-list">
+            <!-- Recipes will be dynamically added here -->
+        </ul>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to load recipes from local storage
+            function loadRecipes() {
+                return JSON.parse(localStorage.getItem('recipes')) || [];
+            }
+
+            // Function to add a new recipe
+            function addRecipe() {
+                const title = document.getElementById('title').value;
+                const ingredients = document.getElementById('ingredients').value;
+                const instructions = document.getElementById('instructions').value;
+
+                if (title && ingredients && instructions) {
+                    const recipe = { id: Date.now(), title, ingredients, instructions };
+                    const recipes = loadRecipes();
+                    recipes.push(recipe);
+                    localStorage.setItem('recipes', JSON.stringify(recipes));
+                    renderRecipes();
+                    document.getElementById('recipe-form').reset();
+                }
+            }
+
+            // Function to render the recipes
+            function renderRecipes() {
+                const recipes = loadRecipes();
+                const recipeList = document.getElementById('recipe-list');
+                recipeList.innerHTML = '';
+                recipes.forEach(recipe => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <div>
+                            <h3>${recipe.title}</h3>
+                            <p><strong>Ingredients:</strong> ${recipe.ingredients}</p>
+                            <p><strong>Instructions:</strong> ${recipe.instructions}</p>
+                        </div>
+                        <button onclick="deleteRecipe(${recipe.id})">Delete</button>
+                    `;
+                    recipeList.appendChild(li);
+                });
+            }
+
+            // Function to delete a recipe
+            function deleteRecipe(id) {
+                let recipes = loadRecipes();
+                recipes = recipes.filter(recipe => recipe.id !== id);
+                localStorage.setItem('recipes', JSON.stringify(recipes));
+                renderRecipes();
+            }
+
+            // Render recipes on page load
+            renderRecipes();
+        });
+    </script>
+</body>
+</html>
