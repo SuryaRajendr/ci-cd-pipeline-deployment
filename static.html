@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            max-width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .recipe {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .recipe img {
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+
+        .recipe-info {
+            flex: 1;
+        }
+
+        h2 {
+            margin: 0 0 10px;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        .instructions {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recipe Book</h1>
+        
+        <div class="recipe">
+            <img src="https://source.unsplash.com/400x300/?spaghetti,carbonara" alt="Spaghetti Carbonara">
+            <div class="recipe-info">
+                <h2>Spaghetti Carbonara</h2>
+                <p><strong>Ingredients:</strong></p>
+                <ul>
+                    <li>200g Spaghetti</li>
+                    <li>100g Pancetta, diced</li>
+                    <li>2 Large eggs</li>
+                    <li>50g Parmesan cheese, grated</li>
+                    <li>Salt, to taste</li>
+                    <li>Black pepper, freshly ground</li>
+                    <li>2 tbsp Olive oil</li>
+                </ul>
+                <div class="instructions">
+                    <strong>How to Make:</strong>
+                    <p>1. Cook the spaghetti in salted boiling water until al dente.</p>
+                    <p>2. In a separate pan, heat olive oil and cook pancetta until crispy.</p>
+                    <p>3. In a bowl, whisk the eggs and cheese together. Season with salt and pepper.</p>
+                    <p>4. Drain the spaghetti and mix it with pancetta in the pan.</p>
+                    <p>5. Remove from heat, then quickly toss with the egg mixture to create a creamy sauce.</p>
+                    <p>6. Serve hot, topped with extra cheese and a sprinkle of black pepper.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="recipe">
+            <img src="https://source.unsplash.com/400x300/?chicken,tikka,masala" alt="Chicken Tikka Masala">
+            <div class="recipe-info">
+                <h2>Chicken Tikka Masala</h2>
+                <p><strong>Ingredients:</strong></p>
+                <ul>
+                    <li>500g Chicken breast, cut into chunks</li>
+                    <li>200g Greek yogurt</li>
+                    <li>2 tbsp Lemon juice</li>
+                    <li>2 tsp Paprika</li>
+                    <li>1 tsp Cumin powder</li>
+                    <li>1 tsp Coriander powder</li>
+                    <li>1 tsp Turmeric powder</li>
+                    <li>2 tbsp Olive oil</li>
+                    <li>2 tbsp Tomato paste</li>
+                    <li>400ml Coconut milk</li>
+                    <li>1 Onion, finely chopped</li>
+                    <li>2 Garlic cloves, minced</li>
+                    <li>1 thumb-sized piece of ginger, grated</li>
+                    <li>Salt, to taste</li>
+                    <li>Fresh coriander leaves, to garnish</li>
+                </ul>
+                <div class="instructions">
+                    <strong>How to Make:</strong>
+                    <p>1. In a bowl, combine yogurt, lemon juice, paprika, cumin, coriander, turmeric, and salt. Add chicken and marinate for at least 1 hour.</p>
+                    <p>2. Heat oil in a pan and sauté onions until golden brown. Add garlic and ginger, sauté for another minute.</p>
+                    <p>3. Add tomato paste and cook for a few minutes. Stir in coconut milk and bring to a simmer.</p>
+                    <p>4. Add chicken pieces and cook until done, about 10-12 minutes.</p>
+                    <p>5. Garnish with fresh coriander leaves and serve with rice or naan.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="recipe">
+            <img src="https://source.unsplash.com/400x300/?salmon" alt="Lemon Glazed Salmon">
+            <div class="recipe-info">
+                <h2>Lemon Glazed Salmon</h2>
+                <p><strong>Ingredients:</strong></p>
+                <ul>
+                    <li>4 Salmon fillets</li>
+                    <li>2 tbsp Olive oil</li>
+                    <li>1 Lemon (zested and juiced)</li>
+                    <li>2 tbsp Honey</li>
+                    <li>1 Garlic clove, minced</li>
+                    <li>Salt and black pepper, to taste</li>
+                    <li>1 tbsp Chopped parsley, for garnish</li>
+                    <li>Steamed asparagus or broccoli, to serve</li>
+                </ul>
+                <div class="instructions">
+                    <strong>How to Make:</strong>
+                    <p>1. Preheat the oven to 400°F (200°C).</p>
+                    <p>2. In a small bowl, mix olive oil, lemon juice, lemon zest, honey, garlic, salt, and pepper.</p>
+                    <p>3. Place salmon fillets on a baking sheet lined with parchment paper. Brush each fillet with the lemon-honey mixture.</p>
+                    <p>4. Bake for 12-15 minutes or until the salmon flakes easily with a fork.</p>
+                    <p>5. Serve hot with steamed vegetables and garnish with chopped parsley.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
