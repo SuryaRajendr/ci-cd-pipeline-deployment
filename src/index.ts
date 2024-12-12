@@ -37,6 +37,7 @@ async function startServer() {
   }
 }
 
+
 function stop() {
   console.log("Stopping server");
   server.close();
